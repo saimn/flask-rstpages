@@ -1,8 +1,16 @@
 # -*- coding:utf-8 -*-
+"""
+flask_rstpages
+~~~~~~~~~~~~~~
+
+Flask-RSTPages adds support for reStructuredText to your Flask application.
+
+:copyright: (c) 2012 by Simon Conseil.
+:license: BSD, see LICENSE for more details.
+
+"""
 
 from __future__ import absolute_import
-
-import re
 
 from flask import abort, safe_join, current_app, url_for
 from jinja2 import TemplateNotFound
@@ -13,29 +21,17 @@ from docutils.parsers.rst import roles
 from . import rstdirectives  # NOQA
 from .parsers import rstDocument
 
-#-----------------------------------------------------------------------------
-# RST roles definition
-
-_abbr_re = re.compile('\((.*)\)$')
-
-
-class abbreviation(nodes.Inline, nodes.TextElement):
-    pass
-
-
-def abbr_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    text = utils.unescape(text)
-    m = _abbr_re.search(text)
-    if m is None:
-        return [abbreviation(text, text)], []
-    abbr = text[:m.start()].strip()
-    expl = m.group(1)
-    return [abbreviation(abbr, abbr, explanation=expl)], []
-
-roles.register_local_role('abbr', abbr_role)
-
 
 def doc_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    """Cross-referencing documents
+
+    Add the ``:doc:`` role of Sphinx to link to documents.
+    ``:doc:\`example\``` will link to the ``example.rst`` document in the
+    pages directory, using Flask's ``url_for`` function to determine the url
+    of the page.
+
+    """
+
     text = utils.unescape(text)
     ref = url_for(current_app.config['RSTPAGES_VIEW_FUNCTION'], page=text)
     rst_file = safe_join(current_app.config['RSTPAGES_SRC'], text + '.rst')
@@ -47,11 +43,9 @@ def doc_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
 
 roles.register_local_role('doc', doc_role)
 
-#-----------------------------------------------------------------------------
-# Main class
-
 
 class RSTPages(object):
+    "reStructuredText to html renderer"
 
     def __init__(self, app=None):
         if app is not None:
@@ -66,6 +60,8 @@ class RSTPages(object):
         app.config.setdefault('RSTPAGES_VIEW_FUNCTION', 'get_rstpage')
 
     def get(self, page):
+        "Convert `page` to reStructuredText and return a `rstDocument`"
+
         try:
             rst_file = safe_join(current_app.config['RSTPAGES_SRC'],
                                  page + '.rst')
