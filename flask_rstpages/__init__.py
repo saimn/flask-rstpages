@@ -56,7 +56,6 @@ class RSTPages(object):
 
     def init_app(self, app):
         app.config.setdefault('RSTPAGES_SRC', 'pages')
-        app.config.setdefault('RSTPAGES_URL', 'pages')
         app.config.setdefault('RSTPAGES_VIEW_FUNCTION', 'get_rstpage')
 
     def get(self, page):
