@@ -8,14 +8,14 @@ Flask-RSTPages adds support for `reStructuredText`_ to your `Flask`_
 application, allowing to convert a reStructuredText file to html.
 
 * BSD licensed
-* Latest documentation on `python.org`_
+* Latest documentation on `readthedocs.org`_
 * Source, issues and pull requests on `Github`_
 * Releases on `PyPI`_
 
 .. _Flask: http://flask.pocoo.org/
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
-.. _python.org: http://packages.python.org/Flask-RSTPages/
-.. _Github: https://github.com/saimn/Flask-RSTPages/
+.. _readthedocs.org: http://flask-rstpages.rtfd.org/
+.. _Github: https://github.com/saimn/flask-rstpages/
 .. _PyPI: http://pypi.python.org/pypi/Flask-RSTPages
 
 Installation
