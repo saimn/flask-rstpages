@@ -38,7 +38,7 @@ To get started you must construct a :class:`RSTPages` object with your
        from flask.ext.rstpages import RSTPages
        pages = RSTPages(app)
 
-Then, you can use the :func:`RSTPages.get` method to convert your
+Then, you can use the :meth:`RSTPages.get` method to convert your
 reStructuredText file to html::
 
        @app.route('/<path:page>/')
@@ -46,7 +46,7 @@ reStructuredText file to html::
            html = pages.get(page)
            return render_template("page.html", page=html)
 
-The :func:`RSTPages.get` returns an object with ``title`` and ``body``
+The :meth:`RSTPages.get` method returns an object with ``title`` and ``body``
 attributes.
 
 Configuration
@@ -69,7 +69,6 @@ API Reference
 
 .. autoclass:: RSTPages
    :members:
-
 
 Changelog
 ---------

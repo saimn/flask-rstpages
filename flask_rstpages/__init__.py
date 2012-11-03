@@ -23,7 +23,7 @@ from .parsers import rstDocument
 
 
 def doc_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    """Cross-referencing documents
+    """ Cross-referencing documents
 
     Add the ``:doc:`` role of Sphinx to link to documents.
     ``:doc:\`example\``` will link to the ``example.rst`` document in the
@@ -45,7 +45,13 @@ roles.register_local_role('doc', doc_role)
 
 
 class RSTPages(object):
-    "reStructuredText to html renderer"
+    """ reStructuredText to html renderer
+
+    :param app: your application. Can be omited if you call
+                :meth:`init_app` later.
+    :type app: Flask instance
+
+    """
 
     def __init__(self, app=None):
         if app is not None:
@@ -55,11 +61,19 @@ class RSTPages(object):
             self.app = None
 
     def init_app(self, app):
+        "Initialize an application"
+
         app.config.setdefault('RSTPAGES_SRC', 'pages')
         app.config.setdefault('RSTPAGES_VIEW_FUNCTION', 'get_rstpage')
 
     def get(self, page):
-        "Convert `page` to reStructuredText and return a `rstDocument`"
+        """ Convert a reStructuredText file to html
+
+        Return a `rstDocument` object with the html ``title`` and ``body``.
+
+        :param page: path to a reStructuredText file
+        :type page: path
+        """
 
         try:
             rst_file = safe_join(current_app.config['RSTPAGES_SRC'],

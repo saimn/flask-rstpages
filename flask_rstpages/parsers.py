@@ -63,6 +63,12 @@ class HTMLTranslator(html4css1.HTMLTranslator):
 
 
 class rstDocument(object):
+    """ reStructuredText to html renderer
+
+    :param file_path: path to a reStructuredText file
+
+    """
+
     def __init__(self, file_path):
         self.file_path = file_path
         self.file_name = ".".join(os.path.basename(self.file_path).split(".")[:-1])
@@ -99,10 +105,12 @@ class rstDocument(object):
 
     @property
     def title(self):
+        "Title of the document"
         return Markup(self.rst['title']).striptags()
 
     @property
     def body(self):
+        "Content of the document converted to HTML"
         return Markup(self.rst['fragment'])
 
     def __repr__(self):

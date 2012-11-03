@@ -173,7 +173,7 @@ htmlhelp_basename = 'Flask-RSTPagesdoc'
 
 html_theme_options = {
     'index_logo': 'logo.png',
-    'github_fork':      'saimn',
+    'github_fork': 'saimn/flask-rstpages',
 }
 
 # -- Options for LaTeX output --------------------------------------------------
