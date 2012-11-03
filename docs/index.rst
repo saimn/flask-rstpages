@@ -76,6 +76,6 @@ Changelog
 Version 0.1
 ~~~~~~~~~~~
 
-Released on 2012-xx-xx.
+Released on 2012-11-03.
 
 First public release.
