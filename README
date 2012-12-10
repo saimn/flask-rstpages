@@ -2,4 +2,4 @@ Flask-RSTPages
 ~~~~~~~~~~~~~~
 
 Flask-RSTPages adds support for reStructuredText to your Flask application.
-See the docs for details: http://flask-rstpages.rtfd.org/
+See the docs for details: http://flask-rstpages.readthedocs.org/

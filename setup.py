@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='Flask-RSTPages',
     version='0.1',
-    url='http://flask-rstpages.rtfd.org/',
+    url='http://flask-rstpages.readthedocs.org/',
     license='BSD',
     author='Simon Conseil',
     author_email='simon.conseil@gmail.com',
