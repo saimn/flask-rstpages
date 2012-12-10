@@ -1,5 +1,8 @@
+.coverage
 *.pyc
+nose.cfg
 *.egg-info/
 .ropeproject/
 dist/
 docs/_build/
+htmlcov/
