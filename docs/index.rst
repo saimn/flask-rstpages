@@ -64,7 +64,12 @@ Flask-RSTPages accepts the following configuration values.
     ``:doc:`page``` markup of Sphinx to `cross-reference`_ documents.
     Defaults to ``get_rstpage``.
 
+``RSTPAGES_RST_SETTINGS``
+    Dict with configuration for the docutils `html4css1 writer`_.
+    Defaults to ``{'initial_header_level': 2}``.
+
 .. _cross-reference: http://sphinx-doc.org/markup/inline.html#cross-referencing-documents
+.. _html4css1 writer : http://docutils.sourceforge.net/docs/user/config.html#html4css1-writer
 
 API Reference
 -------------

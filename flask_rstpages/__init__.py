@@ -65,6 +65,8 @@ class RSTPages(object):
 
         app.config.setdefault('RSTPAGES_SRC', 'pages')
         app.config.setdefault('RSTPAGES_VIEW_FUNCTION', 'get_rstpage')
+        app.config.setdefault('RSTPAGES_RST_SETTINGS',
+                              {'initial_header_level': 2})
 
     def get(self, page):
         """ Convert a reStructuredText file to html
@@ -78,6 +80,7 @@ class RSTPages(object):
         try:
             rst_file = safe_join(current_app.config['RSTPAGES_SRC'],
                                  page + '.rst')
-            return rstDocument(rst_file)
+            return rstDocument(
+                rst_file, settings=current_app.config['RSTPAGES_RST_SETTINGS'])
         except TemplateNotFound:
             abort(404)

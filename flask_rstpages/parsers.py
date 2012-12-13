@@ -69,11 +69,18 @@ class rstDocument(object):
 
     """
 
-    def __init__(self, file_path):
+    def __init__(self, file_path, settings=None):
         self.file_path = file_path
-        self.file_name = ".".join(os.path.basename(self.file_path).split(".")[:-1])
+        self.file_name = ".".join(os.path.basename(self.file_path)
+                                  .split(".")[:-1])
         self._config = None
         self._rst = None
+
+        #'table_style': 'borderless'
+        self.settings = {'initial_header_level': 2}
+        if settings:
+            self.settings.update(settings)
+
         if not os.path.isfile(self.file_path):
             abort(404)
         with open(self.file_path) as f:
@@ -93,14 +100,9 @@ class rstDocument(object):
         writer = Writer()
 
         if not isinstance(self._rst, dict):
-            settings = {
-                'initial_header_level': 2,
-                #'table_style': 'borderless'
-            }
-
             self._rst = publish_parts(source=self.raw,
                                       writer=writer,
-                                      settings_overrides=settings)
+                                      settings_overrides=self.settings)
         return self._rst
 
     @property
