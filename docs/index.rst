@@ -80,6 +80,13 @@ API Reference
 Changelog
 ---------
 
+Version 0.2
+~~~~~~~~~~~
+
+Released on 2012-12-13.
+
+Add a setting to configure the docutils html writer.
+
 Version 0.1
 ~~~~~~~~~~~
 
