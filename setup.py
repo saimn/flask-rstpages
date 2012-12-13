@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Flask-RSTPages',
-    version='0.1',
+    version='0.2',
     url='http://flask-rstpages.readthedocs.org/',
     license='BSD',
     author='Simon Conseil',
