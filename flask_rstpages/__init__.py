@@ -12,7 +12,7 @@ Flask-RSTPages adds support for reStructuredText to your Flask application.
 
 from __future__ import absolute_import
 
-__version__ = "0.2"
+__version__ = "0.3"
 
 from flask import abort, safe_join, current_app, url_for
 from jinja2 import TemplateNotFound

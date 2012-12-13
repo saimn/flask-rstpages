@@ -80,6 +80,13 @@ API Reference
 Changelog
 ---------
 
+Version 0.3
+~~~~~~~~~~~
+
+Released on 2012-12-13.
+
+Fix a bug introduced with the 0.2 release.
+
 Version 0.2
 ~~~~~~~~~~~
 
